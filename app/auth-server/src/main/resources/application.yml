@@ -16,6 +16,7 @@ logging:
     org:
       springframework:
         security: TRACE
+      #  web: TRACE
 server:
   port: 8082
 

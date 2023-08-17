@@ -6,6 +6,7 @@ import com.nimbusds.jose.jwk.JWKSet;
 import com.nimbusds.jose.jwk.RSAKey;
 import com.nimbusds.jose.jwk.source.JWKSource;
 import com.nimbusds.jose.proc.SecurityContext;
+import com.oauth2easy.auth.server.infra.interceptor.DataCollectorInterceptor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.Ordered;
@@ -33,6 +34,7 @@ import org.springframework.security.oauth2.server.authorization.config.ClientSet
 import org.springframework.security.oauth2.server.authorization.config.ProviderSettings;
 import org.springframework.security.oauth2.server.authorization.config.TokenSettings;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter;
 
 import java.io.InputStream;
 import java.security.KeyStore;
@@ -43,16 +45,20 @@ import java.util.Set;
 @EnableWebSecurity
 @Configuration
 public class AuthSecurityConfig {
-
+    private void addDataCollectorFilter(HttpSecurity http){
+        http.addFilterBefore( new DataCollectorInterceptor(), WebAsyncManagerIntegrationFilter.class);
+    }
     @Bean
     @Order(Ordered.HIGHEST_PRECEDENCE)
     public SecurityFilterChain defaultFilterChain(HttpSecurity http) throws Exception {
+        addDataCollectorFilter(http);
         OAuth2AuthorizationServerConfiguration.applyDefaultSecurity(http);
         return http.formLogin(Customizer.withDefaults()).build();
     }
 
     @Bean
     public SecurityFilterChain authFilterChain(HttpSecurity http) throws Exception {
+        addDataCollectorFilter(http);
         http.authorizeRequests().anyRequest().authenticated();
         return http.formLogin(Customizer.withDefaults()).build();
     }

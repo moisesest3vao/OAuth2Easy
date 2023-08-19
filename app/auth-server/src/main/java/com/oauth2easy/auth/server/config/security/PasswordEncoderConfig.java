@@ -1,4 +1,4 @@
-package com.oauth2easy.auth.server.security;
+package com.oauth2easy.auth.server.config.security;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

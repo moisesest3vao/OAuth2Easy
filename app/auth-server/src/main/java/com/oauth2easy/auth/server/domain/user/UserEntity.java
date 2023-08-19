@@ -84,6 +84,6 @@ public class UserEntity {
 	}
 
 	public enum Type {
-		ADMIN, CLIENT;
+		ADMIN, USER;
 	}
 }

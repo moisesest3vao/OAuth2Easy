@@ -1,4 +1,4 @@
-package com.oauth2easy.auth.server.security;
+package com.oauth2easy.auth.server.config.security;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;

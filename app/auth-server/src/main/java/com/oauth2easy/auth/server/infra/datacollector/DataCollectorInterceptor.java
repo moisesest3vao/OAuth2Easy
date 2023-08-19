@@ -1,5 +1,6 @@
 package com.oauth2easy.auth.server.infra.datacollector;
 
+import com.oauth2easy.auth.server.domain.requestrecord.RequestRecord;
 import com.oauth2easy.auth.server.domain.requestrecord.RequestRecordService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -29,7 +30,7 @@ public class DataCollectorInterceptor extends GenericFilterBean {
 
     private void processRequest(HttpServletRequest servletRequest) {
         //add requestRecord in the cache to be saved in the next bulk saving.
-        DataCollectorSchedule.recentRequestRecords.add(servletRequest);
+        DataCollectorSchedule.recentRequestRecords.add(new RequestRecord(servletRequest));
 
          /*
             TODO: Collect data asynchronously and send it to the database

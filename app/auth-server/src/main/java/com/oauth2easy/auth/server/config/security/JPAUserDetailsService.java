@@ -1,4 +1,4 @@
-package com.oauth2easy.auth.server.security;
+package com.oauth2easy.auth.server.config.security;
 
 import com.oauth2easy.auth.server.domain.user.UserRepository;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;

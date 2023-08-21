@@ -18,11 +18,11 @@ logging:
         security: TRACE
       #  web: TRACE
 server:
-  port: 8082
+  port: 8080
 
 asp:
   auth:
-    provider-uri: "http://localhost:8082"
+    provider-uri: "http://localhost:8080"
     jks:
       keypass: 123456
       storepass: 123456

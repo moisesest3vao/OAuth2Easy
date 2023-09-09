@@ -12,7 +12,6 @@ spring:
       resourceserver:
         jwt:
           issuer-uri: http://localhost:8080
-          # jwk-set-uri: http://localhost:8080/oauth2/jwks
 
 server:
   port: 8081

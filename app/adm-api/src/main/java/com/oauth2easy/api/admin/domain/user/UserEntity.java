@@ -1,5 +1,7 @@
 package com.oauth2easy.api.admin.domain.user;
 
+import lombok.Getter;
+import lombok.Setter;
 import org.springframework.data.annotation.CreatedDate;
 
 import javax.persistence.Column;
@@ -11,6 +13,8 @@ import javax.persistence.Id;
 import java.time.OffsetDateTime;
 
 @Entity
+@Getter
+@Setter
 public class UserEntity {
 
 	@Id
@@ -32,54 +36,6 @@ public class UserEntity {
 		this.name = name;
 		this.email = email;
 		this.password = password;
-		this.type = type;
-	}
-
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
-	public String getPassword() {
-		return password;
-	}
-
-	public void setPassword(String password) {
-		this.password = password;
-	}
-
-	public OffsetDateTime getCreatedAt() {
-		return createdAt;
-	}
-
-	public void setCreatedAt(OffsetDateTime createdAt) {
-		this.createdAt = createdAt;
-	}
-
-	public Type getType() {
-		return type;
-	}
-
-	public void setType(Type type) {
 		this.type = type;
 	}
 

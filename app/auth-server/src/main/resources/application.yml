@@ -1,0 +1,30 @@
+spring:
+  datasource:
+    username: root
+    url: jdbc:mysql://localhost:3306/authserver?createDatabaseIfNotExist=true&serverTimezone=UTC
+    password: root
+  jpa:
+    show-sql: 'true'
+    hibernate:
+      ddl-auto: update
+  session:
+    store-type: jdbc
+    jdbc:
+      initialize-schema: always
+logging:
+  level:
+    org:
+      springframework:
+        security: TRACE
+      #  web: TRACE
+server:
+  port: 8080
+
+asp:
+  auth:
+    provider-uri: "http://localhost:8080"
+    jks:
+      keypass: 123456
+      storepass: 123456
+      alias: awblog
+      path: keystore/asp.jks

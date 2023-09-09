@@ -1,0 +1,23 @@
+spring:
+  datasource:
+    username: root
+    url: jdbc:mysql://localhost:3306/authserver?createDatabaseIfNotExist=true&serverTimezone=UTC
+    password: root
+  jpa:
+    show-sql: 'true'
+    hibernate:
+      ddl-auto: update
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://localhost:8080
+
+server:
+  port: 8081
+
+logging:
+  level:
+    org:
+      springframework:
+        security: TRACE
